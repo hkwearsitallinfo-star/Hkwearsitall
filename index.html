@@ -310,7 +310,8 @@ footer{
 
 /* ================= PRODUCT CAROUSEL ================= */
 .carousel{
-  height:300px;
+  aspect-ratio: 4 / 3;
+  width:100%;
   overflow:hidden;
   position:relative;
 }
@@ -320,8 +321,10 @@ footer{
   transition:.4s;
 }
 .carousel img{
-  min-width:100%;
+  width:100%;
+  height:100%;
   object-fit:cover;
+  }
 }
 .carousel button{
   position:absolute;
