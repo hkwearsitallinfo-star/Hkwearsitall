@@ -590,11 +590,7 @@ footer{
     <div class="close" onclick="closeP()">✕</div>
 
     <div class="carousel">
-      <div class="track" id="track">
-        <img src="https://picsum.photos/700/900?11">
-        <img src="https://picsum.photos/700/900?12">
-        <img src="https://picsum.photos/700/900?13">
-      </div>
+      <div class="track" id="track"></div>
       <button class="prev" onclick="slide(-1)">‹</button>
       <button class="next" onclick="slide(1)">›</button>
     </div>
@@ -655,8 +651,38 @@ footer{
 
 <script>
 /* ========= PRODUCT OVERLAY ========= */
+const productImages = {
+  "red dragon jersey": [
+    "red1.png",
+    "red2.png",
+    "red3.png"
+  ],
+  "yellow dragon jersey": [
+    "yellow1.png",
+    "yellow2.png",
+    "yellow3.png"
+  ],
+  "blue dragon jersey": [
+    "blue1.png",
+    "blue2.png",
+    "blue3.png"
+  ],
+  "blood dragon jersey": [
+    "blood1.png",
+    "blood2.png",
+    "blood3.png"
+  ],
+  "porsche oversized tee": [
+    "porsche1.png",
+    "porsche2.png",
+    "porsche3.png"
+  ]
+};
 
-let sel = {
+  
+  
+  
+  let sel = {
   product:"",
   size:"",
   color:"",
@@ -674,6 +700,11 @@ const priceEl = document.getElementById("price");
 const checkoutBtn = document.getElementById("checkout");
 
 function openP(name){
+  const imgs = productImages[name];
+
+  index = 0;
+  track.style.transform = "translateX(0)";
+  track.innerHTML = imgs.map(src => `<img src="${src}">`).join("");
   sel = { product:name, size:"", color:"", qty:1, price:1999 };
 
   titleEl.innerText = name;
