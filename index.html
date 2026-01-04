@@ -7,6 +7,92 @@
 <title>hkwearsitall</title>
 
 <style>
+  /* ================= HEADER SEARCH ================= */
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6vw;
+  height:56px;
+}
+
+.search-icon{
+  background:none;
+  border:none;
+  font-size:20px;
+  color:#eaeaea;
+  cursor:pointer;
+}
+
+/* Search overlay */
+.search-overlay{
+  position:fixed;
+  top:56px;
+  left:0;
+  right:0;
+  background:#0b0b0b;
+  padding:16px 6vw;
+  display:none;
+  z-index:40;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.search-overlay.active{
+  display:block;
+}
+
+#searchInput{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.2);
+  background:#111;
+  color:#fff;
+  font-size:1rem;
+  outline:none;
+}
+
+/* Results */
+.search-results{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.search-results button{
+  text-align:left;
+  padding:12px;
+  border-radius:10px;
+  background:#111;
+  border:1px solid rgba(255,255,255,.08);
+  color:#eaeaea;
+  cursor:pointer;
+}
+
+.search-results button:hover{
+  border-color:var(--yellow);
+  color:var(--yellow);
+}
+  .search-icon{
+  background:none;
+  border:none;
+  padding:6px;
+  cursor:pointer;
+  color:#eaeaea;          /* SVG inherits this */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.search-icon svg{
+  display:block;
+}
+
+.search-icon:hover{
+  color:var(--yellow);
+}
   /* ================= BELIEF SECTION ================= */
 .belief-section{
   background:#f5b400;   /* deep yellow */
@@ -330,9 +416,38 @@ footer{
 </head>
 <body>
 
-<header>
+<header class="header">
   <div class="logo">
     <img src="Picsart_26-01-04_09-46-04-552.png">
+  </div>
+
+  <div class="search-wrap">
+    <button class="search-icon" onclick="toggleSearch()" aria-label="Search">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="11"
+      cy="11"
+      r="7"
+      stroke="currentColor"
+      stroke-width="2"
+    />
+    <line
+      x1="16.65"
+      y1="16.65"
+      x2="21"
+      y2="21"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+  </svg>
+    </button>
   </div>
 </header>
 
@@ -620,4 +735,40 @@ setInterval(() => {
     }, MINI_TRANSITION);
   }
 }, MINI_DELAY);
+  /* ========= SEARCH ========= */
+
+const searchOverlay = document.getElementById("searchOverlay");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
+// product list source (single truth)
+const searchableProducts = Object.keys(productImages);
+
+function toggleSearch(){
+  searchOverlay.classList.toggle("active");
+  searchInput.value = "";
+  searchResults.innerHTML = "";
+  setTimeout(() => searchInput.focus(), 50);
+}
+
+function runSearch(){
+  const q = searchInput.value.toLowerCase().trim();
+  searchResults.innerHTML = "";
+
+  if(!q) return;
+
+  const matches = searchableProducts.filter(p =>
+    p.toLowerCase().includes(q)
+  );
+
+  matches.forEach(name => {
+    const btn = document.createElement("button");
+    btn.innerText = name;
+    btn.onclick = () => {
+      toggleSearch();
+      openP(name);
+    };
+    searchResults.appendChild(btn);
+  });
+        }
 </script>
