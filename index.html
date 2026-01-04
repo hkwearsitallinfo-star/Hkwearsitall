@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hkwearsitall</title>
+
+<style>
+
+:root{
+  --bg:#0b0b0b;
+  --card:#111;
+  --yellow:#f5b400;
+  --orange:#ff7a18;
+  --text:#eaeaea;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui, Inter, sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+}
+
+/* ================= HEADER ================= */
+header{
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.logo img{
+  height:42px;
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:48vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.85)),
+    url("Picsart_26-01-04_14-54-44-659.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:36px 0 24px;
+  font-family:'Bebas Neue',sans-serif;
+  letter-spacing:.12em;
+}
+
+.hero h1{
+  font-size:clamp(3rem,9vw,5rem);
+  font-weight:900;
+  line-height:1;
+}
+
+.hero span{color:var(--yellow)}
+
+/* ================= MINI HERO ================= */
+.mini-hero{
+  height:96px;
+  overflow:hidden;
+}
+@media(min-width:900px){
+  .mini-hero{height:130px}
+}
+.mini-track{
+  display:flex;
+  height:100%;
+  transition:transform .9s ease-in-out;
+}
+.mini-slide{
+  min-width:100%;
+  background-size:cover;
+  background-position:center;
+}
+
+/* ================= COLLECTION BUTTONS ================= */
+.collections-wide{
+  padding:16px 6vw;
+  display:grid;
+  gap:14px;
+}
+@media(min-width:900px){
+  .collections-wide{grid-template-columns:1fr 1fr}
+}
+.collection-card{
+  height:190px;
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+}
+.collection-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.collection-label{
+  position:absolute;
+  bottom:14px;
+  left:14px;
+  font-size:1.2rem;
+  font-weight:800;
+}
+
+/* ================= PRODUCTS ================= */
+.products{
+  padding:18px 6vw;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+@media(min-width:900px){
+  .products{grid-template-columns:repeat(5,1fr)}
+}
+.product{
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+}
+.product img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+}
+.product .title{
+  padding:10px;
+  font-size:.9rem;
+}
+
+/* ================= ABOUT ================= */
+.about{
+  padding:22px 8vw;
+  text-align:center;
+  opacity:.8;
+  font-size:.9rem;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  padding:14px;
+  text-align:center;
+  opacity:.6;
+  font-size:.8rem;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* ================= OVERLAYS ================= */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(18px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+}
+.overlay.active{display:flex}
+
+/* ================= PRODUCT MODAL ================= */
+.modal{
+  width:94%;
+  max-width:420px;
+  max-height:90vh;
+  background:#0e0e0e;
+  border-radius:22px;
+  overflow:auto;
+  position:relative;
+}
+.modal .content{
+  padding:20px 18px 22px;
+}
+
+.close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:rgba(0,0,0,.75);
+  border:1px solid rgba(255,255,255,.35);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:9999;
+}
+
+/* ================= PRODUCT CAROUSEL ================= */
+.carousel{
+  height:300px;
+  overflow:hidden;
+  position:relative;
+}
+.track{
+  display:flex;
+  height:100%;
+  transition:.4s;
+}
+.carousel img{
+  min-width:100%;
+  object-fit:cover;
+}
+.carousel button{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.6);
+  border:none;
+  color:white;
+  padding:12px;
+  font-size:18px;
+}
+.prev{left:10px}
+.next{right:10px}
+
+/* ================= SIZE OPTIONS ================= */
+.option{
+  margin-bottom:18px;
+}
+.option span{
+  display:block;
+  margin-bottom:8px;
+  font-size:.8rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  opacity:.6;
+}
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.buttons button{
+  min-width:42px;
+  padding:8px 14px;
+  font-size:.85rem;
+  border-radius:10px;
+  background:#121212;
+  border:1px solid rgba(255,255,255,.18);
+  color:#eaeaea;
+}
+.buttons button.active{
+  border-color:var(--yellow);
+  color:var(--yellow);
+}
+
+/* ================= QUANTITY ================= */
+.qty{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+.qty button{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:#121212;
+  border:1px solid rgba(255,255,255,.2);
+  color:white;
+  font-size:20px;
+}
+#qty{
+  min-width:24px;
+  text-align:center;
+  font-weight:600;
+}
+
+/* ================= CHECKOUT ================= */
+#checkout{
+  width:100%;
+  padding:16px;
+  border-radius:16px;
+  border:none;
+  background:#111;
+  color:#666;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  opacity:.5;
+}
+#checkout.active{
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  color:black;
+  opacity:1;
+  cursor:pointer;
+}
+#checkout.active:active{
+  transform:scale(.97);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="Picsart_26-01-04_09-46-04-552.png">
+  </div>
+</header>
+
+<section class="hero">
+  <h1>HYPE<span>|DRIP</span></h1>
+</section>
+
+<section class="mini-hero">
+  <div class="mini-track" id="miniTrack">
+    <div class="mini-slide" style="background-image:url('Picsart_26-01-04_16-34-27-342.jpg')"></div>
+    <div class="mini-slide" style="background-image:url('Picsart_26-01-04_16-26-11-965.jpg')"></div>
+    <div class="mini-slide" style="background-image:url('New Project 43 [9F70E37].png')"></div>
+    <div class="mini-slide" style="background-image:url('Picsart_26-01-04_16-34-27-342.jpg')"></div>
+  </div>
+</section>
+
+<section class="collections-wide">
+  <div class="collection-card" onclick="openCollection('anime')">
+    <img src="file_00000000ad747209b0bc922f8dadcec8.png">
+    <div class="collection-label">ANIME COLLECTION</div>
+  </div>
+
+  <div class="collection-card" onclick="openCollection('dragon')">
+    <img src="file_00000000ff4c7209b8af13a0e4dc4a33.png">
+    <div class="collection-label">DRAGON COLLECTION</div>
+  </div>
+</section>
+
+<section class="belief-section">
+  <h2>HKWEARSITALL™</h2>
+  <p>
+    We believe clothing is more than fabric. It is identity, attitude, and intent.
+    Every piece we create is driven by clarity of design, honest expression, and
+    the refusal to follow noise-driven trends. We build for those who wear meaning,
+    not labels.
+  </p>
+</section>
+
+<section class="products">
+
+  <div class="product" onclick="openP('red dragon jersey')">
+    <img src="red_dragon_jersy_cover.png">
+    <div class="title">Red dragon jersey</div>
+  </div>
+
+  <div class="product" onclick="openP('yellow dragon jersey')">
+    <img src="yellow_dragon_cover.png">
+    <div class="title">Yellow dragon jersey</div>
+  </div>
+
+  <div class="product" onclick="openP('blue dragon jersey')">
+    <img src="blue_dragon_jersey_cover.png">
+    <div class="title">Blue dragon jersey</div>
+  </div>
+
+  <div class="product" onclick="openP('blood dragon jersey')">
+    <img src="blood_dragon_jersey cover.png">
+    <div class="title">Blood dragon jersey</div>
+  </div>
+
+  <div class="product" onclick="openP('porsche oversized tee')">
+    <img src="porsche_front_cover.png">
+    <div class="title">Porsche oversized tee</div>
+  </div>
+
+  <div class="product" onclick="openP('mercedes oversized tee')">
+    <img src="black1.png">
+    <div class="title">Mercedes oversized tee</div>
+  </div>
+
+  <!-- NEW PRODUCTS -->
+  <div class="product" onclick="openP('shanks tee')">
+    <img src="shanks1.jpg">
+    <div class="title">Shanks tee</div>
+  </div>
+
+  <div class="product" onclick="openP('demon slayer tee')">
+    <img src="demon1.jpg">
+    <div class="title">Demon Slayer tee</div>
+  </div>
+
+  <div class="product" onclick="openP('one piece tee')">
+    <img src="onepiece1.jpg">
+    <div class="title">One Piece tee</div>
+  </div>
+
+</section>
+
+
+<!-- PRODUCT OVERLAY -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="close" onclick="closeP()">✕</div>
+
+    <!-- PRODUCT IMAGE CAROUSEL (UNCHANGED) -->
+    <div class="carousel">
+      <div class="track" id="track"></div>
+      <button class="prev" onclick="slide(-1)">‹</button>
+      <button class="next" onclick="slide(1)">›</button>
+    </div>
+
+    <div class="content">
+      <h2 id="title"></h2>
+
+      <!-- SIZE ONLY -->
+      <div class="option">
+        <span>Size</span>
+        <div class="buttons">
+          <button onclick="selectSize(this)">S</button>
+          <button onclick="selectSize(this)">M</button>
+          <button onclick="selectSize(this)">L</button>
+          <button onclick="selectSize(this)">XL</button>
+        </div>
+      </div>
+
+      <!-- QUANTITY -->
+      <div class="qty">
+        <button onclick="changeQty(-1)">−</button>
+        <div id="qty">1</div>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+
+      <!-- CHECKOUT -->
+      <button id="checkout" onclick="checkout()">
+        Checkout via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- COLLECTION OVERLAY (SINGLE IMAGE, NO CAROUSEL) -->
+<div class="collection-overlay" id="collectionOverlay" onclick="closeCollection()">
+  <div class="carousel" onclick="event.stopPropagation()">
+
+    <div class="close" onclick="closeCollection()">✕</div>
+
+    <!-- SINGLE IMAGE ONLY -->
+    <img id="collectionImage" style="width:100%;height:100%;object-fit:cover;">
+  </div>
+</div>
+<section class="about">
+  hkwearsitall is a streetwear label focused on bold silhouettes and limited drops.
+</section>
+
+<footer>© hkwearsitall</footer>
+<script>
+/* ========= PRODUCT OVERLAY ========= */
+
+const productImages = {
+  "red dragon jersey": ["red1.jpg","red2.jpg"],
+  "yellow dragon jersey": ["yellow1.jpg","yellow2.jpg"],
+  "blue dragon jersey": ["blue1.jpg","blue2.jpg"],
+  "blood dragon jersey": ["blood1.jpg","blood2.jpg"],
+  "porsche oversized tee": ["Porsche1.png","Porsche2.png"],
+  "mercedes oversized tee": ["mercedes1.png","mercedes2.png"],
+  "shanks tee": ["shanks1.jpg","shanks2.jpg"],
+  "demon slayer tee": ["demon1.jpg","demon2.jpg"],
+  "one piece tee": ["onepiece1.jpg","onepiece2.jpg"]
+};
+
+let sel = {
+  product:"",
+  size:"",
+  qty:1
+};
+
+let index = 0;
+
+const overlay = document.getElementById("overlay");
+const track = document.getElementById("track");
+const titleEl = document.getElementById("title");
+const qtyEl = document.getElementById("qty");
+const checkoutBtn = document.getElementById("checkout");
+
+/* OPEN PRODUCT */
+function openP(name){
+  const imgs = productImages[name];
+  if(!imgs) return;
+
+  sel = { product:name, size:"", qty:1 };
+
+  titleEl.innerText = name;
+  qtyEl.innerText = "1";
+
+  index = 0;
+  track.style.transform = "translateX(0)";
+  track.innerHTML = imgs.map(src => `<img src="${src}">`).join("");
+
+  document
+    .querySelectorAll(".buttons button")
+    .forEach(b => b.classList.remove("active"));
+
+  checkoutBtn.classList.remove("active");
+  overlay.classList.add("active");
+}
+
+function closeP(){
+  overlay.classList.remove("active");
+}
+
+/* PRODUCT IMAGE SLIDE */
+function slide(d){
+  const imgs = productImages[sel.product];
+  index = (index + d + imgs.length) % imgs.length;
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+/* SIZE SELECT */
+function selectSize(btn){
+  btn.parentElement.querySelectorAll("button")
+    .forEach(b => b.classList.remove("active"));
+
+  btn.classList.add("active");
+  sel.size = btn.innerText;
+
+  checkoutBtn.classList.add("active");
+}
+
+/* QUANTITY */
+function changeQty(n){
+  sel.qty = Math.max(1, sel.qty + n);
+  qtyEl.innerText = sel.qty;
+}
+
+/* CHECKOUT */
+function checkout(){
+  if(!sel.size) return;
+
+  const msg =
+`Product: ${sel.product}
+Size: ${sel.size}
+Quantity: ${sel.qty}
+
+May I know about the pricing for this?`;
+
+  location.href =
+`https://wa.me/919920584344?text=${encodeURIComponent(msg)}`;
+}
+
+/* ========= COLLECTION OVERLAY ========= */
+
+const collectionOverlay = document.getElementById("collectionOverlay");
+const collectionImage = document.getElementById("collectionImage");
+
+const collections = {
+  anime: "file_00000000ad747209b0bc922f8dadcec8.png",
+  dragon: "file_00000000ff4c7209b8af13a0e4dc4a33.png"
+};
+
+function openCollection(type){
+  collectionImage.src = collections[type];
+  collectionOverlay.classList.add("active");
+}
+
+function closeCollection(){
+  collectionOverlay.classList.remove("active");
+}
+</script>
+
+<script>
+/* ========= MINI HERO AUTO LOOP ========= */
+
+const miniTrack = document.getElementById("miniTrack");
+const miniSlides = miniTrack.children;
+const miniTotal = miniSlides.length;
+
+let miniIndex = 0;
+
+const MINI_DELAY = 3000;
+const MINI_TRANSITION = 800;
+
+setInterval(() => {
+  miniIndex++;
+
+  miniTrack.style.transition =
+    `transform ${MINI_TRANSITION}ms ease-in-out`;
+  miniTrack.style.transform =
+    `translateX(-${miniIndex * 100}%)`;
+
+  if (miniIndex === miniTotal - 1) {
+    setTimeout(() => {
+      miniTrack.style.transition = "none";
+      miniIndex = 0;
+      miniTrack.style.transform = "translateX(0)";
+    }, MINI_TRANSITION);
+  }
+}, MINI_DELAY);
+</script>
