@@ -769,8 +769,10 @@ function runSearch(){
   });
         }
   document.addEventListener("click", e => {
-  if(!searchOverlay.contains(e.target) &&
-     !e.target.classList.contains("search-icon")){
+  if (
+    !searchOverlay.contains(e.target) &&
+    !e.target.closest(".search-icon")
+  ) {
     searchOverlay.classList.remove("active");
   }
 });
