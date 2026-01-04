@@ -771,4 +771,11 @@ function runSearch(){
     searchResults.appendChild(btn);
   });
         }
+  document.addEventListener("click", e => {
+  if(!searchOverlay.contains(e.target) &&
+     !e.target.classList.contains("search-icon")){
+    searchOverlay.classList.remove("active");
+  }
+});
+  
 </script>
