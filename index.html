@@ -8,14 +8,27 @@
 <title>hkwearsitall</title>
 
 <style>
-  .white-strip{
+.white-strip{
   grid-column: 1 / -1;
   background:#fff;
+
+  /* make it edge-to-edge */
+  margin-left:-6vw;
+  margin-right:-6vw;
   padding:18px 6vw;
-  border-radius:20px;
+
+  /* remove rounding */
+  border-radius:0;
+
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:14px;
+}
+
+@media(min-width:900px){
+  .white-strip{
+    grid-template-columns:repeat(5,1fr);
+  }
 }
 
 @media(min-width:900px){
@@ -37,7 +50,7 @@
 }
 
 .white-strip .title{
-  color:#000;
+  color:#fff;
 }
   .cars{
   background:#0b0b0b;
