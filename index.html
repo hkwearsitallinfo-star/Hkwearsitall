@@ -9,13 +9,40 @@
 
 <style>
   .cars{
-   background-color: white;
-    
-  
+  background:#0b0b0b;
+  padding:32px 0;
+}
+
+.cars-inner{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.cars-products{
+  padding:0 6vw;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+@media(min-width:900px){
+  .cars-products{
+    grid-template-columns:repeat(5,1fr);
   }
-  .carsposter{
-   padding:18px 6vw;
-  }
+}
+
+.cars-poster{
+  padding:0 6vw;
+}
+
+.cars-poster img{
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:16px;
+  display:block;
+}
   
   /* ================= PRODUCT SECTION HEADING ================= */
 
@@ -545,20 +572,29 @@ footer{
     <div class="title">Blood dragon jersey</div>
   </div>
 
-  <section class="cars">
-  <div class="product" onclick="openP('porsche oversized tee')">
-    <img src="porsche_front_cover.png">
-    <div class="title">Porsche oversized tee</div>
-  </div>
+  <section class="products">
+  <!-- ONLY product cards -->
+</section>
 
-  <div class="product" onclick="openP('mercedes oversized tee')">
-    <img src="mercedes8.png">
-    <div class="title">Mercedes oversized tee</div>
-  </div>
-    <div class="cars_poster">
-      <img src="divya1.jpg">
+<section class="cars">
+  <div class="cars-inner">
+    <div class="products cars-products">
+      <div class="product" onclick="openP('porsche oversized tee')">
+        <img src="porsche_front_cover.png">
+        <div class="title">Porsche oversized tee</div>
+      </div>
+
+      <div class="product" onclick="openP('mercedes oversized tee')">
+        <img src="mercedes8.png">
+        <div class="title">Mercedes oversized tee</div>
+      </div>
     </div>
-  </section>
+
+    <div class="cars-poster">
+      <img src="divya1.jpg" alt="">
+    </div>
+  </div>
+</section>
   <!-- NEW PRODUCTS -->
   <div class="product" onclick="openP('shanks tee')">
     <img src="shanks1.png">
