@@ -26,16 +26,17 @@
   gap:14px;
 }
 
-  .product-banner{
-  grid-column: 1 / -1;   /* spans full row */
-  padding: 10px 0;
+.product-banner{
+  grid-column: 1 / -1;
+  margin: 16px 0;
 }
 
 .product-banner img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:16px;
+  width: 100%;
+  height: 180px;          /* 👈 controls height */
+  object-fit: cover;     /* crops instead of stretching */
+  display: block;
+  border-radius: 16px;
 }
 @media(min-width:900px){
   .cars-products{
