@@ -501,6 +501,24 @@ footer{
   text-align:center;
   font-weight:600;
 }
+  .size-chart button{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  padding:10px 12px;
+}
+
+.size-num{
+  font-size:0.65rem;
+  opacity:0.6;
+  letter-spacing:0.04em;
+}
+
+.size-label{
+  font-size:0.9rem;
+  font-weight:600;
+}
 
 /* ================= CHECKOUT ================= */
 #checkout{
@@ -717,16 +735,39 @@ footer{
       <!-- SIZE ONLY -->
       <div class="option">
         <span>Size</span>
-        <div class="buttons">
-          <button onclick="selectSize(this)">S</button>
-          <button onclick="selectSize(this)">M</button>
-          <button onclick="selectSize(this)">L</button>
-          <button onclick="selectSize(this)">XL</button>
-          <button onclick="selectSize(this)">XXL</button>
-          <button onclick="selectSize(this)">XXXL</button>
-        </div>
-      </div>
+        <div class="buttons size-chart">
 
+  <button onclick="selectSize(this)">
+    <span class="size-num">22–36</span>
+    <span class="size-label">S</span>
+  </button>
+
+  <button onclick="selectSize(this)">
+    <span class="size-num">38</span>
+    <span class="size-label">M</span>
+  </button>
+
+  <button onclick="selectSize(this)">
+    <span class="size-num">40</span>
+    <span class="size-label">L</span>
+  </button>
+
+  <button onclick="selectSize(this)">
+    <span class="size-num">42</span>
+    <span class="size-label">XL</span>
+  </button>
+
+  <button onclick="selectSize(this)">
+    <span class="size-num">44</span>
+    <span class="size-label">XXL</span>
+  </button>
+
+  <button onclick="selectSize(this)">
+    <span class="size-num">46</span>
+    <span class="size-label">XXXL</span>
+  </button>
+
+        </div>
       <!-- QUANTITY -->
       <div class="qty">
         <button onclick="changeQty(-1)">−</button>
