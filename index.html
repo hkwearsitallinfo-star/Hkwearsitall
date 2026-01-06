@@ -8,6 +8,11 @@
 <title>hkwearsitall</title>
 
 <style>
+  html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  }
 .white-strip{
   grid-column: 1 / -1;
   background:#f5f5f5;
@@ -388,7 +393,7 @@ footer{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:20;
+  z-index:99999;
   top:0;
   left:0;
   width:100vw;
@@ -861,13 +866,15 @@ function openP(name){
     .forEach(b => b.classList.remove("active"));
 
   checkoutBtn.classList.remove("active");
-  document.body.classList.remove("modal-open");
+
+  document.body.classList.add("modal-open"); // ✅ MUST be ADD
   overlay.classList.add("active");
 }
 
 function closeP(){
   overlay.classList.remove("active");
-}
+  document.body.classList.remove("modal-open"); // ✅ remove on close
+  }
 
 /* PRODUCT IMAGE SLIDE */
 function slide(d){
