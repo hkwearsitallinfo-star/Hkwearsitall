@@ -505,20 +505,31 @@ footer{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:4px;
-  padding:10px 12px;
-}
+  justify-content:center;
+  gap:2px;
+
+  padding:8px 0;
+  min-width:64px;
+  height:64px;
+
+  border-radius:14px;
+  }
 
 .size-num{
-  font-size:0.65rem;
-  opacity:0.6;
-  letter-spacing:0.04em;
+  font-size:0.6rem;
+  opacity:0.55;
+  letter-spacing:0.06em;
 }
 
 .size-label{
-  font-size:0.9rem;
+  font-size:0.85rem;
   font-weight:600;
 }
+  @media(max-width:360px){
+  .size-chart{
+    grid-template-columns:repeat(3,1fr);
+  }
+  }
 
 /* ================= CHECKOUT ================= */
 #checkout{
