@@ -15,16 +15,10 @@
   }
 .white-strip{
   grid-column: 1 / -1;
-  background:#f5f5f5;
-
-  /* make it edge-to-edge */
-  margin-left:-6vw;
+  background:#f5f5f5;margin-left:-6vw;
   margin-right:-6vw;
   padding:18px 6vw;
-  row-gap:0;
-
-  /* remove rounding */
-  border-radius:0;
+  row-gap:0;border-radius:0;
   border-radius: 0 !important;
   overflow: visible !important;
   display:grid;
@@ -42,191 +36,67 @@
   .white-strip{
     grid-template-columns:repeat(5,1fr);
   }
-}
-
-.white-strip .product-banner{
-  grid-column: 1 / -1;
-
-  /* make banners full-bleed */
-  margin-left: -6vw;
-  margin-right: -6vw;
-  margin:0;
-}
-
-.white-strip .product-banner img{
+}.white-strip .product-banner{
+  grid-column: 1 / -1; margin-left: -6vw;
+  margin-right: -6vw;margin:0;
+}.white-strip .product-banner img{
   width:100%;
   height:160px;
   object-fit:cover;
   display:block;
-}
-
-.white-strip .title{
+}.white-strip .title{
   color:#fff;
-}
-  .cars{
+}.cars{
   background:#0b0b0b;
   padding:32px 0;
-}
-
-.cars-inner{
+}.cars-inner{
   display:flex;
   flex-direction:column;
   gap:24px;
-}
-
-.cars-products{
+}.cars-products{
   padding:0 6vw;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
+  display:grid;grid-template-columns:repeat(2,1fr);
   gap:14px;
-}
-
-.product-banner{
+}.product-banner{
   grid-column: 1 / -1;
   margin: 16px 0;
-}
-
-.product-banner img{
+}.product-banner img{
   width:100%;
   height:160px;
   object-fit:cover;
   display:block;
   border-radius:0;
-}
-@media(min-width:900px){
+}@media(min-width:900px){
   .cars-products{
     grid-template-columns:repeat(5,1fr);
   }
-}
-
-.cars-poster{
-  padding:0 6vw;
-}
-
-.cars-poster img{
+}.cars-poster{padding:0 6vw;
+}.cars-poster img{
   width:100%;
   max-height:420px;
   object-fit:cover;
   border-radius:16px;
   display:block;
-}
-  
-  /* ================= PRODUCT SECTION HEADING ================= */
-
-.section-heading{
-  padding:32px 6vw 14px;
-  font-size:clamp(1.4rem,3vw,1.9rem);
-  font-weight:900;
-  letter-spacing:.18em;
+}.section-heading{
+  padding:32px 6vw 14px;font-size:clamp(1.4rem,3vw,1.9rem);
+  font-weight:900;letter-spacing:.18em;
   text-transform:uppercase;
   color:var(--yellow);
   grid-column: 1 / -1;
-}
-  /* ================= HEADER SEARCH ================= */
-
-.header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 6vw;
-  height:56px;
-}
-
-.search-icon{
-  background:none;
-  border:none;
-  font-size:20px;
-  color:#eaeaea;
-  cursor:pointer;
-}
-
-/* Search overlay */
-.search-overlay{
-  position:fixed;
-  top:56px;
-  left:0;
-  right:0;
-  background:#0b0b0b;
-  padding:16px 6vw;
-  display:none;
-  z-index:40;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.search-overlay.active{
-  display:block;
-}
-
-#searchInput{
-  width:100%;
-  padding:12px 14px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.2);
-  background:#111;
-  color:#fff;
-  font-size:1rem;
-  outline:none;
-}
-
-/* Results */
-.search-results{
-  margin-top:12px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.search-results button{
-  text-align:left;
-  padding:12px;
-  border-radius:10px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.08);
-  color:#eaeaea;
-  cursor:pointer;
-}
-
-.search-results button:hover{
-  border-color:var(--yellow);
-  color:var(--yellow);
-}
-  .search-icon{
-  background:none;
-  border:none;
-  padding:6px;
-  cursor:pointer;
-  color:#eaeaea;          /* SVG inherits this */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.search-icon svg{
-  display:block;
-}
-
-.search-icon:hover{
-  color:var(--yellow);
-}
-  /* ================= BELIEF SECTION ================= */
-.belief-section{
-  background:#f5b400;   /* deep yellow */
-  color:#000;
-  padding:80px 10vw;
-  text-align:left;
-}
-
-.belief-section h2{
-  font-size:clamp(2.1rem,4vw,3.4rem);
-  font-weight:800;
-  letter-spacing:.04em;
-  margin-bottom:20px;
-}
-
-.belief-section p{
-  max-width:700px;
-  font-size:1.05rem;
-  line-height:1.7;
+}.header{display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:56px;
+}.search-icon{background:none;border:none;font-size:20px;color:#eaeaea;cursor:pointer;
+}.search-overlay{position:fixed;top:56px;left:0;right:0;background:#0b0b0b;padding:16px 6vw;display:none;z-index:40;border-bottom:1px solid rgba(255,255,255,.08);
+}.search-overlay.active{display:block;
+}#searchInput{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:#111;color:#fff;font-size:1rem;outline:none;
+}.search-results{margin-top:12px;display:flex;flex-direction:column;gap:8px;
+}.search-results button{text-align:left;padding:12px;border-radius:10px;background:#111;border:1px solid rgba(255,255,255,.08);color:#eaeaea;cursor:pointer;
+}.search-results button:hover{border-color:var(--yellow);color:var(--yellow);
+}.search-icon{background:none;border:none;padding:6px;cursor:pointer;color:#eaeaea;display:flex;align-items:center;justify-content:center;
+}.search-icon svg{display:block;
+}.search-icon:hover{color:var(--yellow);
+}.belief-section{background:#f5b400;color:#000;padding:80px 10vw;text-align:left;
+}.belief-section h2{font-size:clamp(2.1rem,4vw,3.4rem);font-weight:800;letter-spacing:.04em;margin-bottom:20px;
+}.belief-section p{max-width:700px;font-size:1.05rem; line-height:1.7;
 }
 
 :root{
@@ -253,23 +123,15 @@ body{
   overflow:hidden;
   position:fixed;
   width:100%;
-  }
-
-/* ================= HEADER ================= */
-header{
+  }header{
   height:56px;
   display:flex;
   align-items:center;
   justify-content:center;
   border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.logo img{
+}.logo img{
   height:42px;
-}
-
-/* ================= HERO ================= */
-.hero{
+}.hero{
   min-height:48vh;
   background:
     linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.85)),
@@ -283,37 +145,25 @@ header{
   padding:36px 0 24px;
   font-family:'Bebas Neue',sans-serif;
   letter-spacing:.12em;
-}
-
-.hero h1{
+}.hero h1{
   font-size:clamp(3rem,9vw,5rem);
   font-weight:900;
   line-height:1;
-}
-
-.hero span{color:var(--yellow)}
-
-/* ================= MINI HERO ================= */
+}.hero span{color:var(--yellow)}
 .mini-hero{
   height:96px;
   overflow:hidden;
-}
-@media(min-width:900px){
+}@media(min-width:900px){
   .mini-hero{height:130px}
-}
-.mini-track{
+}.mini-track{
   display:flex;
   height:100%;
   transition:transform .9s ease-in-out;
-}
-.mini-slide{
+}.mini-slide{
   min-width:100%;
   background-size:cover;
   background-position:center;
-}
-
-/* ================= COLLECTION BUTTONS ================= */
-.collections-wide{
+}.collections-wide{
   padding:16px 6vw;
   display:grid;
   gap:14px;
@@ -339,46 +189,31 @@ header{
   left:14px;
   font-size:1.2rem;
   font-weight:800;
-}
-
-/* ================= PRODUCTS ================= */
-.products{
+}.products{
   padding:18px 6vw;
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:14px;
-}
-@media(min-width:900px){
+}@media(min-width:900px){
   .products{grid-template-columns:repeat(5,1fr)}
-}
-.product{
+}.product{
   background:var(--card);
   border-radius:12px;
   overflow:hidden;
   cursor:pointer;
-}
-.product img{
+}.product img{
   width:100%;
   aspect-ratio:3/4;
   object-fit:cover;
-}
-.product .title{
+}.product .title{
   padding:10px;
   font-size:.9rem;
-}
-
-/* ================= ABOUT ================= */
-.about{
+}.about{
   padding:22px 8vw;
   text-align:center;
   opacity:.8;
   font-size:.9rem;
-}
-
-/* ================= FOOTER ================= */
-
-/* ================= OVERLAYS ================= */
-.overlay{
+}.overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.7);
@@ -392,13 +227,7 @@ header{
   width:100vw;
   height:100vh;
   overflow:hidden;
-}
-  
-  
-  
-.overlay.active{display:flex}
-
-/* ================= PRODUCT MODAL ================= */
+}.overlay.active{display:flex}
 .modal{
   width:94%;
   max-width:420px;
@@ -427,10 +256,7 @@ header{
   justify-content:center;
   cursor:pointer;
   z-index:9999;
-}
-
-/* ================= PRODUCT CAROUSEL ================= */
-.carousel{
+}.carousel{
   aspect-ratio: 4 / 3;
   width:100%;
   overflow:hidden;
@@ -459,8 +285,6 @@ header{
 }
 .prev{left:10px}
 .next{right:10px}
-
-/* ================= SIZE OPTIONS ================= */
 .option{
   margin-bottom:18px;
 }
@@ -490,8 +314,6 @@ header{
   border-color:var(--yellow);
   color:var(--yellow);
 }
-
-/* ================= QUANTITY ================= */
 .qty{
   display:flex;
   align-items:center;
@@ -542,7 +364,6 @@ header{
   }
   }
 
-/* ================= CHECKOUT ================= */
 #checkout{
   width:100%;
   padding:16px;
@@ -612,7 +433,7 @@ header{
     </button>
   </div>
 </header>
-  <!-- SEARCH OVERLAY -->
+  
 <div class="search-overlay" id="searchOverlay">
   <input
     type="text"
@@ -657,7 +478,6 @@ header{
     not labels.
   </p>
 </section>
-<!-- SECTION HEADING -->
 <div class="section-heading">
   TSHIRTS
 </div>
@@ -703,7 +523,6 @@ header{
 
   </div>
 
-<!-- anime tees -->
   <div class="product" onclick="openP('shanks tee')">
     <img src="shanks1.png">
     <div class="title">Shanks tee</div>
@@ -722,11 +541,9 @@ header{
 
 
 </section>
-  <!-- SECTION HEADING -->
 <div class="section-heading">
   HOODIES
 </div>
-  <!-- PRODUCT -->
   <section class=products>
 <div class="product" onclick="openP('printed white hoodie')">
   <img src="hoodie1c.png">
@@ -739,27 +556,15 @@ header{
     </div>
     
   </section>
-<!-- PRODUCT OVERLAY -->
 <div class="overlay" id="overlay">
   <div class="modal">
-    <div class="close" onclick="closeP()">✕</div>
-
-    <!-- PRODUCT IMAGE CAROUSEL (UNCHANGED) -->
-    <div class="carousel">
+    <div class="close" onclick="closeP()">✕</div><div class="carousel">
       <div class="track" id="track"></div>
       <button class="prev" onclick="slide(-1)">‹</button>
       <button class="next" onclick="slide(1)">›</button>
-    </div>
-
-    <div class="content">
-      <h2 id="title"></h2>
-
-      <!-- SIZE ONLY -->
-      <div class="option">
+    </div><div class="content"><h2 id="title"></h2><div class="option">
         <span>Size</span>
-        <div class="buttons size-chart">
-
-  <button onclick="selectSize(this)">
+        <div class="buttons size-chart"><button onclick="selectSize(this)">
     <span class="size-num">22–36</span>
     <span class="size-label">S</span>
   </button>
@@ -790,15 +595,11 @@ header{
   </button>
 
         </div>
-      <!-- QUANTITY -->
       <div class="qty">
         <button onclick="changeQty(-1)">−</button>
         <div id="qty">1</div>
         <button onclick="changeQty(1)">+</button>
-      </div>
-
-      <!-- CHECKOUT -->
-      <button id="checkout" onclick="checkout()">
+      </div><button id="checkout" onclick="checkout()">
         Checkout via WhatsApp
       </button>
     </div>
@@ -808,8 +609,6 @@ header{
 
 
 <script>
-/* ========= PRODUCT OVERLAY ========= */
-
 const productImages = {
   "red dragon jersey": ["red1.jpg","red2.jpg"],
   "yellow dragon jersey": ["yellow1.jpg","yellow2.jpg"],
@@ -840,7 +639,6 @@ const titleEl = document.getElementById("title");
 const qtyEl = document.getElementById("qty");
 const checkoutBtn = document.getElementById("checkout");
 
-/* OPEN PRODUCT */
 function openP(name){
   const imgs = productImages[name];
   if(!imgs) return;
@@ -869,14 +667,13 @@ function closeP(){
   document.body.classList.remove("modal-open"); // ✅ remove on close
   }
 
-/* PRODUCT IMAGE SLIDE */
 function slide(d){
   const imgs = productImages[sel.product];
   index = (index + d + imgs.length) % imgs.length;
   track.style.transform = `translateX(-${index * 100}%)`;
 }
 
-/* SIZE SELECT */
+
 function selectSize(btn){
   btn.parentElement.querySelectorAll("button")
     .forEach(b => b.classList.remove("active"));
@@ -887,13 +684,12 @@ function selectSize(btn){
   checkoutBtn.classList.add("active");
 }
 
-/* QUANTITY */
+
 function changeQty(n){
   sel.qty = Math.max(1, sel.qty + n);
   qtyEl.innerText = sel.qty;
 }
 
-/* CHECKOUT */
 function checkout(){
   if(!sel.size) return;
 
@@ -907,10 +703,7 @@ May I know about the pricing for this?`;
   location.href =
 `https://wa.me/919920584344?text=${encodeURIComponent(msg)}`;
 }
-
-/* ========= COLLECTION OVERLAY ========= */
-
-const collectionOverlay = document.getElementById("collectionOverlay");
+  const collectionOverlay = document.getElementById("collectionOverlay");
 const collectionImage = document.getElementById("collectionImage");
 
 const collections = {
@@ -929,7 +722,6 @@ function closeCollection(){
 </script>
 
 <script>
-/* ========= MINI HERO AUTO LOOP ========= */
 
 const miniTrack = document.getElementById("miniTrack");
 const miniSlides = miniTrack.children;
@@ -956,13 +748,12 @@ setInterval(() => {
     }, MINI_TRANSITION);
   }
 }, MINI_DELAY);
-  /* ========= SEARCH ========= */
 
 const searchOverlay = document.getElementById("searchOverlay");
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
-// product list source (single truth)
+
 const searchableProducts = Object.keys(productImages);
 
 function toggleSearch(){
